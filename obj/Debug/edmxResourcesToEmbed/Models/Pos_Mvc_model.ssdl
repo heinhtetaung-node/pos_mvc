@@ -1,0 +1,741 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="posmvcModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="admin_role">
+    <Key>
+      <PropertyRef Name="admin_role_id" />
+    </Key>
+    <Property Name="admin_role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="role_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="role_description" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="admin_user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="admin_role_id" Type="int" />
+    <Property Name="stock_location_id" Type="int" />
+  </EntityType>
+  <EntityType Name="avail_stock_products">
+    <Key>
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="category_id" Type="int" />
+    <Property Name="subcategory_id" Type="int" Nullable="false" />
+    <Property Name="qty" Type="int" />
+    <Property Name="current_price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="cost" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="category_id" />
+    </Key>
+    <Property Name="category_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="category_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="category_description" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="customer_id" />
+    </Key>
+    <Property Name="customer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customer_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="address" Type="nvarchar" MaxLength="150" />
+    <Property Name="ph1" Type="nvarchar" MaxLength="50" />
+    <Property Name="ph2" Type="nvarchar" MaxLength="50" />
+    <Property Name="ph3" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="township_id" Type="int" />
+  </EntityType>
+  <EntityType Name="customer_payment_left">
+    <Key>
+      <PropertyRef Name="customer_payment_left_id" />
+    </Key>
+    <Property Name="customer_payment_left_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customer_id" Type="int" />
+    <Property Name="left_amount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="return_amt" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="important_sql">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="where_in_use" Type="nvarchar" MaxLength="500" />
+    <Property Name="sql" Type="text" />
+  </EntityType>
+  <EntityType Name="loc_country">
+    <Key>
+      <PropertyRef Name="country_id" />
+    </Key>
+    <Property Name="country_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="country_name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="loc_statedivision">
+    <Key>
+      <PropertyRef Name="statedivision_id" />
+    </Key>
+    <Property Name="statedivision_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="country_id" Type="int" />
+    <Property Name="statedivision_name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="loc_stock_location">
+    <Key>
+      <PropertyRef Name="stock_location_id" />
+    </Key>
+    <Property Name="stock_location_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="stock_location_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="township_id" Type="int" />
+    <Property Name="address" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="statedivision_id" Type="int" />
+    <Property Name="country_id" Type="int" />
+  </EntityType>
+  <EntityType Name="loc_township">
+    <Key>
+      <PropertyRef Name="township_id" />
+    </Key>
+    <Property Name="township_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="statedivision_id" Type="int" />
+    <Property Name="country_id" Type="int" />
+    <Property Name="township_name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="stock_in">
+    <Key>
+      <PropertyRef Name="stock_in_id" />
+    </Key>
+    <Property Name="stock_in_id" Type="int" Nullable="false" />
+    <Property Name="stock_in_time" Type="datetime" Nullable="false" />
+    <Property Name="supplier_id" Type="int" />
+    <Property Name="supplier_payment" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="qty_of_producttypes" Type="int" />
+    <Property Name="paid" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="supplier_payment_left_id" Type="int" />
+    <Property Name="move_to_stock" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="left_amount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="paid_amount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="return_amt" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="daily_transition_id" Type="int" />
+    <Property Name="admin_user_id" Type="int" />
+  </EntityType>
+  <EntityType Name="stock_in_products">
+    <Key>
+      <PropertyRef Name="stock_in_products_id" />
+    </Key>
+    <Property Name="stock_in_products_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="stock_in_id" Type="int" />
+    <Property Name="product_id" Type="int" />
+    <Property Name="product_buy_pric" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="product_sell_default_price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="product_qty" Type="int" />
+    <Property Name="stock_status" Type="tinyint" />
+    <Property Name="additional_cost" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="supplier_id" Type="int" />
+    <Property Name="stock_location_id" Type="int" />
+    <Property Name="stock_in_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="stock_out">
+    <Key>
+      <PropertyRef Name="stock_out_id" />
+    </Key>
+    <Property Name="stock_out_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="stock_out_time" Type="datetime" />
+    <Property Name="customer_id" Type="int" />
+    <Property Name="customer_payment" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="qty_of_producttypes" Type="int" />
+    <Property Name="paid_amount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="customer_payment_left_id" Type="int" />
+    <Property Name="sent_or_unsent" Type="tinyint" />
+    <Property Name="stock_out_type" Type="nvarchar" MaxLength="50" />
+    <Property Name="transport_cost" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="left_amount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="paid_or_unpaid" Type="tinyint" />
+    <Property Name="cu_profit" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="temp_profit" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="return_amt" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="real_total_profit" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="get_total_profit" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="total_cost" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="daily_transition_id" Type="int" />
+    <Property Name="stock_location_id" Type="int" />
+    <Property Name="admin_user_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="stock_out_products">
+    <Key>
+      <PropertyRef Name="stock_out_products_id" />
+    </Key>
+    <Property Name="stock_out_products_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="stock_out_id" Type="int" />
+    <Property Name="product_id" Type="int" />
+    <Property Name="price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="cost" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="profit" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="product_qty" Type="int" />
+    <Property Name="sent_or_unsent" Type="tinyint" />
+    <Property Name="customer_id" Type="int" />
+    <Property Name="total_price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="stock_out_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="subcategory">
+    <Key>
+      <PropertyRef Name="subcategory_id" />
+    </Key>
+    <Property Name="subcategory_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="subcategory_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="subcategory_description" Type="nvarchar" MaxLength="100" />
+    <Property Name="category_id" Type="int" />
+  </EntityType>
+  <EntityType Name="supplier">
+    <Key>
+      <PropertyRef Name="supplier_id" />
+    </Key>
+    <Property Name="supplier_id" Type="int" Nullable="false" />
+    <Property Name="supplier_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="address" Type="nvarchar" MaxLength="150" />
+    <Property Name="ph1" Type="nvarchar" MaxLength="50" />
+    <Property Name="ph2" Type="nvarchar" MaxLength="50" />
+    <Property Name="ph3" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="township_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="supplier_payment_left">
+    <Key>
+      <PropertyRef Name="supplier_payment_left_id" />
+    </Key>
+    <Property Name="supplier_payment_left_id" Type="int" Nullable="false" />
+    <Property Name="left_amount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="return_amount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="supplier_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="finish" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="total_daily_transition">
+    <Key>
+      <PropertyRef Name="daily_transition_id" />
+    </Key>
+    <Property Name="daily_transition_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="total_profit_amount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="income_or_outcome_date" Type="datetime" />
+    <Property Name="total_income_amount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="total_outgo_amount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="stock_location_id" Type="int" />
+  </EntityType>
+  <Association Name="FK_admin_user_admin_role">
+    <End Role="admin_role" Type="Self.admin_role" Multiplicity="0..1" />
+    <End Role="admin_user" Type="Self.admin_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admin_role">
+        <PropertyRef Name="admin_role_id" />
+      </Principal>
+      <Dependent Role="admin_user">
+        <PropertyRef Name="admin_role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_admin_user_loc_stock_location">
+    <End Role="loc_stock_location" Type="Self.loc_stock_location" Multiplicity="0..1" />
+    <End Role="admin_user" Type="Self.admin_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="loc_stock_location">
+        <PropertyRef Name="stock_location_id" />
+      </Principal>
+      <Dependent Role="admin_user">
+        <PropertyRef Name="stock_location_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_asp_To_category_id">
+    <End Role="category" Type="Self.category" Multiplicity="0..1" />
+    <End Role="avail_stock_products" Type="Self.avail_stock_products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="category_id" />
+      </Principal>
+      <Dependent Role="avail_stock_products">
+        <PropertyRef Name="category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_asp_To_subcategory_id">
+    <End Role="subcategory" Type="Self.subcategory" Multiplicity="1" />
+    <End Role="avail_stock_products" Type="Self.avail_stock_products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subcategory">
+        <PropertyRef Name="subcategory_id" />
+      </Principal>
+      <Dependent Role="avail_stock_products">
+        <PropertyRef Name="subcategory_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cpl_To_customer">
+    <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+    <End Role="customer_payment_left" Type="Self.customer_payment_left" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="customer_id" />
+      </Principal>
+      <Dependent Role="customer_payment_left">
+        <PropertyRef Name="customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_customer_To_township">
+    <End Role="loc_township" Type="Self.loc_township" Multiplicity="0..1" />
+    <End Role="customer" Type="Self.customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="loc_township">
+        <PropertyRef Name="township_id" />
+      </Principal>
+      <Dependent Role="customer">
+        <PropertyRef Name="township_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_loc_statedivision_loc_country">
+    <End Role="loc_country" Type="Self.loc_country" Multiplicity="0..1" />
+    <End Role="loc_statedivision" Type="Self.loc_statedivision" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="loc_country">
+        <PropertyRef Name="country_id" />
+      </Principal>
+      <Dependent Role="loc_statedivision">
+        <PropertyRef Name="country_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_loc_stock_location_loc_township">
+    <End Role="loc_township" Type="Self.loc_township" Multiplicity="0..1" />
+    <End Role="loc_stock_location" Type="Self.loc_stock_location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="loc_township">
+        <PropertyRef Name="township_id" />
+      </Principal>
+      <Dependent Role="loc_stock_location">
+        <PropertyRef Name="township_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_loc_township_loc_country">
+    <End Role="loc_country" Type="Self.loc_country" Multiplicity="0..1" />
+    <End Role="loc_township" Type="Self.loc_township" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="loc_country">
+        <PropertyRef Name="country_id" />
+      </Principal>
+      <Dependent Role="loc_township">
+        <PropertyRef Name="country_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_loc_township_loc_statedivision">
+    <End Role="loc_statedivision" Type="Self.loc_statedivision" Multiplicity="0..1" />
+    <End Role="loc_township" Type="Self.loc_township" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="loc_statedivision">
+        <PropertyRef Name="statedivision_id" />
+      </Principal>
+      <Dependent Role="loc_township">
+        <PropertyRef Name="statedivision_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_lsl_To_country">
+    <End Role="loc_country" Type="Self.loc_country" Multiplicity="0..1" />
+    <End Role="loc_stock_location" Type="Self.loc_stock_location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="loc_country">
+        <PropertyRef Name="country_id" />
+      </Principal>
+      <Dependent Role="loc_stock_location">
+        <PropertyRef Name="country_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_lsl_To_state_division">
+    <End Role="loc_statedivision" Type="Self.loc_statedivision" Multiplicity="0..1" />
+    <End Role="loc_stock_location" Type="Self.loc_stock_location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="loc_statedivision">
+        <PropertyRef Name="statedivision_id" />
+      </Principal>
+      <Dependent Role="loc_stock_location">
+        <PropertyRef Name="statedivision_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sip_To_products">
+    <End Role="avail_stock_products" Type="Self.avail_stock_products" Multiplicity="0..1" />
+    <End Role="stock_in_products" Type="Self.stock_in_products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="avail_stock_products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="stock_in_products">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sip_To_stock_in">
+    <End Role="stock_in" Type="Self.stock_in" Multiplicity="0..1" />
+    <End Role="stock_in_products" Type="Self.stock_in_products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="stock_in">
+        <PropertyRef Name="stock_in_id" />
+      </Principal>
+      <Dependent Role="stock_in_products">
+        <PropertyRef Name="stock_in_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sip_To_stock_location">
+    <End Role="loc_stock_location" Type="Self.loc_stock_location" Multiplicity="0..1" />
+    <End Role="stock_in_products" Type="Self.stock_in_products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="loc_stock_location">
+        <PropertyRef Name="stock_location_id" />
+      </Principal>
+      <Dependent Role="stock_in_products">
+        <PropertyRef Name="stock_location_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sip_To_supplier">
+    <End Role="supplier" Type="Self.supplier" Multiplicity="0..1" />
+    <End Role="stock_in_products" Type="Self.stock_in_products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="supplier">
+        <PropertyRef Name="supplier_id" />
+      </Principal>
+      <Dependent Role="stock_in_products">
+        <PropertyRef Name="supplier_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sop_To_customer">
+    <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+    <End Role="stock_out_products" Type="Self.stock_out_products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="customer_id" />
+      </Principal>
+      <Dependent Role="stock_out_products">
+        <PropertyRef Name="customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sop_To_daily_transition">
+    <End Role="total_daily_transition" Type="Self.total_daily_transition" Multiplicity="0..1" />
+    <End Role="stock_out" Type="Self.stock_out" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="total_daily_transition">
+        <PropertyRef Name="daily_transition_id" />
+      </Principal>
+      <Dependent Role="stock_out">
+        <PropertyRef Name="daily_transition_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sop_To_product">
+    <End Role="avail_stock_products" Type="Self.avail_stock_products" Multiplicity="0..1" />
+    <End Role="stock_out_products" Type="Self.stock_out_products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="avail_stock_products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="stock_out_products">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sop_To_stock_out">
+    <End Role="stock_out" Type="Self.stock_out" Multiplicity="0..1" />
+    <End Role="stock_out_products" Type="Self.stock_out_products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="stock_out">
+        <PropertyRef Name="stock_out_id" />
+      </Principal>
+      <Dependent Role="stock_out_products">
+        <PropertyRef Name="stock_out_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_spl_To_supplier">
+    <End Role="supplier" Type="Self.supplier" Multiplicity="1" />
+    <End Role="supplier_payment_left" Type="Self.supplier_payment_left" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="supplier">
+        <PropertyRef Name="supplier_id" />
+      </Principal>
+      <Dependent Role="supplier_payment_left">
+        <PropertyRef Name="supplier_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_stock_in_To_admin_user">
+    <End Role="admin_user" Type="Self.admin_user" Multiplicity="0..1" />
+    <End Role="stock_in" Type="Self.stock_in" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admin_user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="stock_in">
+        <PropertyRef Name="admin_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_stock_in_To_daily_transition">
+    <End Role="total_daily_transition" Type="Self.total_daily_transition" Multiplicity="0..1" />
+    <End Role="stock_in" Type="Self.stock_in" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="total_daily_transition">
+        <PropertyRef Name="daily_transition_id" />
+      </Principal>
+      <Dependent Role="stock_in">
+        <PropertyRef Name="daily_transition_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_stock_in_To_supplier">
+    <End Role="supplier" Type="Self.supplier" Multiplicity="0..1" />
+    <End Role="stock_in" Type="Self.stock_in" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="supplier">
+        <PropertyRef Name="supplier_id" />
+      </Principal>
+      <Dependent Role="stock_in">
+        <PropertyRef Name="supplier_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_stock_in_To_supplier_payment_left">
+    <End Role="supplier_payment_left" Type="Self.supplier_payment_left" Multiplicity="0..1" />
+    <End Role="stock_in" Type="Self.stock_in" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="supplier_payment_left">
+        <PropertyRef Name="supplier_payment_left_id" />
+      </Principal>
+      <Dependent Role="stock_in">
+        <PropertyRef Name="supplier_payment_left_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_stock_out_To_admin_user">
+    <End Role="admin_user" Type="Self.admin_user" Multiplicity="1" />
+    <End Role="stock_out" Type="Self.stock_out" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admin_user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="stock_out">
+        <PropertyRef Name="admin_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_stock_out_To_customer">
+    <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+    <End Role="stock_out" Type="Self.stock_out" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="customer_id" />
+      </Principal>
+      <Dependent Role="stock_out">
+        <PropertyRef Name="customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_subcategory_category">
+    <End Role="category" Type="Self.category" Multiplicity="0..1" />
+    <End Role="subcategory" Type="Self.subcategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="category_id" />
+      </Principal>
+      <Dependent Role="subcategory">
+        <PropertyRef Name="category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_supplier_To_township">
+    <End Role="loc_township" Type="Self.loc_township" Multiplicity="1" />
+    <End Role="supplier" Type="Self.supplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="loc_township">
+        <PropertyRef Name="township_id" />
+      </Principal>
+      <Dependent Role="supplier">
+        <PropertyRef Name="township_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tdt_To_stock_location">
+    <End Role="loc_stock_location" Type="Self.loc_stock_location" Multiplicity="0..1" />
+    <End Role="total_daily_transition" Type="Self.total_daily_transition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="loc_stock_location">
+        <PropertyRef Name="stock_location_id" />
+      </Principal>
+      <Dependent Role="total_daily_transition">
+        <PropertyRef Name="stock_location_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="posmvcModelStoreContainer">
+    <EntitySet Name="admin_role" EntityType="Self.admin_role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="admin_user" EntityType="Self.admin_user" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="avail_stock_products" EntityType="Self.avail_stock_products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="category" EntityType="Self.category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customer_payment_left" EntityType="Self.customer_payment_left" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="important_sql" EntityType="Self.important_sql" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="loc_country" EntityType="Self.loc_country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="loc_statedivision" EntityType="Self.loc_statedivision" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="loc_stock_location" EntityType="Self.loc_stock_location" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="loc_township" EntityType="Self.loc_township" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="stock_in" EntityType="Self.stock_in" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="stock_in_products" EntityType="Self.stock_in_products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="stock_out" EntityType="Self.stock_out" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="stock_out_products" EntityType="Self.stock_out_products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="subcategory" EntityType="Self.subcategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="supplier" EntityType="Self.supplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="supplier_payment_left" EntityType="Self.supplier_payment_left" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="total_daily_transition" EntityType="Self.total_daily_transition" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_admin_user_admin_role" Association="Self.FK_admin_user_admin_role">
+      <End Role="admin_role" EntitySet="admin_role" />
+      <End Role="admin_user" EntitySet="admin_user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_admin_user_loc_stock_location" Association="Self.FK_admin_user_loc_stock_location">
+      <End Role="loc_stock_location" EntitySet="loc_stock_location" />
+      <End Role="admin_user" EntitySet="admin_user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_asp_To_category_id" Association="Self.FK_asp_To_category_id">
+      <End Role="category" EntitySet="category" />
+      <End Role="avail_stock_products" EntitySet="avail_stock_products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_asp_To_subcategory_id" Association="Self.FK_asp_To_subcategory_id">
+      <End Role="subcategory" EntitySet="subcategory" />
+      <End Role="avail_stock_products" EntitySet="avail_stock_products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cpl_To_customer" Association="Self.FK_cpl_To_customer">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="customer_payment_left" EntitySet="customer_payment_left" />
+    </AssociationSet>
+    <AssociationSet Name="FK_customer_To_township" Association="Self.FK_customer_To_township">
+      <End Role="loc_township" EntitySet="loc_township" />
+      <End Role="customer" EntitySet="customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_loc_statedivision_loc_country" Association="Self.FK_loc_statedivision_loc_country">
+      <End Role="loc_country" EntitySet="loc_country" />
+      <End Role="loc_statedivision" EntitySet="loc_statedivision" />
+    </AssociationSet>
+    <AssociationSet Name="FK_loc_stock_location_loc_township" Association="Self.FK_loc_stock_location_loc_township">
+      <End Role="loc_township" EntitySet="loc_township" />
+      <End Role="loc_stock_location" EntitySet="loc_stock_location" />
+    </AssociationSet>
+    <AssociationSet Name="FK_loc_township_loc_country" Association="Self.FK_loc_township_loc_country">
+      <End Role="loc_country" EntitySet="loc_country" />
+      <End Role="loc_township" EntitySet="loc_township" />
+    </AssociationSet>
+    <AssociationSet Name="FK_loc_township_loc_statedivision" Association="Self.FK_loc_township_loc_statedivision">
+      <End Role="loc_statedivision" EntitySet="loc_statedivision" />
+      <End Role="loc_township" EntitySet="loc_township" />
+    </AssociationSet>
+    <AssociationSet Name="FK_lsl_To_country" Association="Self.FK_lsl_To_country">
+      <End Role="loc_country" EntitySet="loc_country" />
+      <End Role="loc_stock_location" EntitySet="loc_stock_location" />
+    </AssociationSet>
+    <AssociationSet Name="FK_lsl_To_state_division" Association="Self.FK_lsl_To_state_division">
+      <End Role="loc_statedivision" EntitySet="loc_statedivision" />
+      <End Role="loc_stock_location" EntitySet="loc_stock_location" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sip_To_products" Association="Self.FK_sip_To_products">
+      <End Role="avail_stock_products" EntitySet="avail_stock_products" />
+      <End Role="stock_in_products" EntitySet="stock_in_products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sip_To_stock_in" Association="Self.FK_sip_To_stock_in">
+      <End Role="stock_in" EntitySet="stock_in" />
+      <End Role="stock_in_products" EntitySet="stock_in_products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sip_To_stock_location" Association="Self.FK_sip_To_stock_location">
+      <End Role="loc_stock_location" EntitySet="loc_stock_location" />
+      <End Role="stock_in_products" EntitySet="stock_in_products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sip_To_supplier" Association="Self.FK_sip_To_supplier">
+      <End Role="supplier" EntitySet="supplier" />
+      <End Role="stock_in_products" EntitySet="stock_in_products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sop_To_customer" Association="Self.FK_sop_To_customer">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="stock_out_products" EntitySet="stock_out_products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sop_To_daily_transition" Association="Self.FK_sop_To_daily_transition">
+      <End Role="total_daily_transition" EntitySet="total_daily_transition" />
+      <End Role="stock_out" EntitySet="stock_out" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sop_To_product" Association="Self.FK_sop_To_product">
+      <End Role="avail_stock_products" EntitySet="avail_stock_products" />
+      <End Role="stock_out_products" EntitySet="stock_out_products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sop_To_stock_out" Association="Self.FK_sop_To_stock_out">
+      <End Role="stock_out" EntitySet="stock_out" />
+      <End Role="stock_out_products" EntitySet="stock_out_products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_spl_To_supplier" Association="Self.FK_spl_To_supplier">
+      <End Role="supplier" EntitySet="supplier" />
+      <End Role="supplier_payment_left" EntitySet="supplier_payment_left" />
+    </AssociationSet>
+    <AssociationSet Name="FK_stock_in_To_admin_user" Association="Self.FK_stock_in_To_admin_user">
+      <End Role="admin_user" EntitySet="admin_user" />
+      <End Role="stock_in" EntitySet="stock_in" />
+    </AssociationSet>
+    <AssociationSet Name="FK_stock_in_To_daily_transition" Association="Self.FK_stock_in_To_daily_transition">
+      <End Role="total_daily_transition" EntitySet="total_daily_transition" />
+      <End Role="stock_in" EntitySet="stock_in" />
+    </AssociationSet>
+    <AssociationSet Name="FK_stock_in_To_supplier" Association="Self.FK_stock_in_To_supplier">
+      <End Role="supplier" EntitySet="supplier" />
+      <End Role="stock_in" EntitySet="stock_in" />
+    </AssociationSet>
+    <AssociationSet Name="FK_stock_in_To_supplier_payment_left" Association="Self.FK_stock_in_To_supplier_payment_left">
+      <End Role="supplier_payment_left" EntitySet="supplier_payment_left" />
+      <End Role="stock_in" EntitySet="stock_in" />
+    </AssociationSet>
+    <AssociationSet Name="FK_stock_out_To_admin_user" Association="Self.FK_stock_out_To_admin_user">
+      <End Role="admin_user" EntitySet="admin_user" />
+      <End Role="stock_out" EntitySet="stock_out" />
+    </AssociationSet>
+    <AssociationSet Name="FK_stock_out_To_customer" Association="Self.FK_stock_out_To_customer">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="stock_out" EntitySet="stock_out" />
+    </AssociationSet>
+    <AssociationSet Name="FK_subcategory_category" Association="Self.FK_subcategory_category">
+      <End Role="category" EntitySet="category" />
+      <End Role="subcategory" EntitySet="subcategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_supplier_To_township" Association="Self.FK_supplier_To_township">
+      <End Role="loc_township" EntitySet="loc_township" />
+      <End Role="supplier" EntitySet="supplier" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tdt_To_stock_location" Association="Self.FK_tdt_To_stock_location">
+      <End Role="loc_stock_location" EntitySet="loc_stock_location" />
+      <End Role="total_daily_transition" EntitySet="total_daily_transition" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

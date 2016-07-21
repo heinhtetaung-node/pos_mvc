@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="63095d91c387488ebddb6c0ba6c04a47" Name="Diagram1" ZoomLevel="67">
+        <EntityTypeShape EntityType="posModel.admin_role" Width="1.5" PointX="13.5" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="posModel.admin_user" Width="1.5" PointX="15.75" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="posModel.avail_stock_products" Width="1.5" PointX="12.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="posModel.category" Width="1.5" PointX="10.5" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="posModel.customer" Width="1.5" PointX="7.5" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="posModel.customer_payment_left" Width="1.5" PointX="9.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="posModel.important_sql" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="posModel.loc_country" Width="1.5" PointX="0.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="posModel.loc_statedivision" Width="1.5" PointX="3" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="posModel.loc_stock_location" Width="1.5" PointX="10.5" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="posModel.loc_township" Width="1.5" PointX="5.25" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="posModel.stock_in" Width="1.5" PointX="18" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="posModel.stock_in_products" Width="1.5" PointX="20.25" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="posModel.stock_out" Width="1.5" PointX="12.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="posModel.stock_out_products" Width="1.5" PointX="15" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="posModel.subcategory" Width="1.5" PointX="10.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="posModel.supplier" Width="1.5" PointX="7.5" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="posModel.supplier_payment_left" Width="1.5" PointX="9.75" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="posModel.sysdiagram" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="posModel.total_daily_transition" Width="1.5" PointX="12.75" PointY="19.625" IsExpanded="true" />
+        <AssociationConnector Association="posModel.FK_admin_user_admin_role" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_admin_user_loc_stock_location" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_stock_in_To_admin_user" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_stock_out_To_admin_user" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_asp_To_category_id" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_asp_To_subcategory_id" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_sip_To_products" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_sop_To_product" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_subcategory_category" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_cpl_To_customer" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_customer_To_township" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_sop_To_customer" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_stock_out_To_customer" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_loc_statedivision_loc_country" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_loc_township_loc_country" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_lsl_To_country" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_loc_township_loc_statedivision" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_lsl_To_state_division" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_loc_stock_location_loc_township" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_sip_To_stock_location" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_tdt_To_stock_location" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_supplier_To_township" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_sip_To_stock_in" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_stock_in_To_daily_transition" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_stock_in_To_supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_stock_in_To_supplier_payment_left" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_sip_To_supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_sop_To_daily_transition" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_sop_To_stock_out" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_spl_To_supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="posModel.FK_stock_in_stock_location" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<POS_MVC.Models.supplier>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.supplier_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ph1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ph2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ph3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.loc_township.township_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.supplier_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ph1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ph2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ph3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.loc_township.township_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.supplier_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.supplier_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.supplier_id })
+        </td>
+    </tr>
+}
+
+</table>

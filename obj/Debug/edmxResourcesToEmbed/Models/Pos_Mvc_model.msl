@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="posmvcModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="admin_role">
+      <EntityTypeMapping TypeName="posmvcModel.admin_role">
+        <MappingFragment StoreEntitySet="admin_role">
+          <ScalarProperty Name="admin_role_id" ColumnName="admin_role_id" />
+          <ScalarProperty Name="role_name" ColumnName="role_name" />
+          <ScalarProperty Name="role_description" ColumnName="role_description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="admin_user">
+      <EntityTypeMapping TypeName="posmvcModel.admin_user">
+        <MappingFragment StoreEntitySet="admin_user">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="admin_role_id" ColumnName="admin_role_id" />
+          <ScalarProperty Name="stock_location_id" ColumnName="stock_location_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="avail_stock_products">
+      <EntityTypeMapping TypeName="posmvcModel.avail_stock_products">
+        <MappingFragment StoreEntitySet="avail_stock_products">
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+          <ScalarProperty Name="category_id" ColumnName="category_id" />
+          <ScalarProperty Name="subcategory_id" ColumnName="subcategory_id" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+          <ScalarProperty Name="current_price" ColumnName="current_price" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="categories">
+      <EntityTypeMapping TypeName="posmvcModel.category">
+        <MappingFragment StoreEntitySet="category">
+          <ScalarProperty Name="category_id" ColumnName="category_id" />
+          <ScalarProperty Name="category_name" ColumnName="category_name" />
+          <ScalarProperty Name="category_description" ColumnName="category_description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="posmvcModel.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="ph1" ColumnName="ph1" />
+          <ScalarProperty Name="ph2" ColumnName="ph2" />
+          <ScalarProperty Name="ph3" ColumnName="ph3" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="township_id" ColumnName="township_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customer_payment_left">
+      <EntityTypeMapping TypeName="posmvcModel.customer_payment_left">
+        <MappingFragment StoreEntitySet="customer_payment_left">
+          <ScalarProperty Name="customer_payment_left_id" ColumnName="customer_payment_left_id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="left_amount" ColumnName="left_amount" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="return_amt" ColumnName="return_amt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="important_sql">
+      <EntityTypeMapping TypeName="posmvcModel.important_sql">
+        <MappingFragment StoreEntitySet="important_sql">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="where_in_use" ColumnName="where_in_use" />
+          <ScalarProperty Name="sql" ColumnName="sql" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="loc_country">
+      <EntityTypeMapping TypeName="posmvcModel.loc_country">
+        <MappingFragment StoreEntitySet="loc_country">
+          <ScalarProperty Name="country_id" ColumnName="country_id" />
+          <ScalarProperty Name="country_name" ColumnName="country_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="loc_statedivision">
+      <EntityTypeMapping TypeName="posmvcModel.loc_statedivision">
+        <MappingFragment StoreEntitySet="loc_statedivision">
+          <ScalarProperty Name="statedivision_id" ColumnName="statedivision_id" />
+          <ScalarProperty Name="country_id" ColumnName="country_id" />
+          <ScalarProperty Name="statedivision_name" ColumnName="statedivision_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="loc_stock_location">
+      <EntityTypeMapping TypeName="posmvcModel.loc_stock_location">
+        <MappingFragment StoreEntitySet="loc_stock_location">
+          <ScalarProperty Name="stock_location_id" ColumnName="stock_location_id" />
+          <ScalarProperty Name="stock_location_name" ColumnName="stock_location_name" />
+          <ScalarProperty Name="township_id" ColumnName="township_id" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="statedivision_id" ColumnName="statedivision_id" />
+          <ScalarProperty Name="country_id" ColumnName="country_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="loc_township">
+      <EntityTypeMapping TypeName="posmvcModel.loc_township">
+        <MappingFragment StoreEntitySet="loc_township">
+          <ScalarProperty Name="township_id" ColumnName="township_id" />
+          <ScalarProperty Name="statedivision_id" ColumnName="statedivision_id" />
+          <ScalarProperty Name="country_id" ColumnName="country_id" />
+          <ScalarProperty Name="township_name" ColumnName="township_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stock_in">
+      <EntityTypeMapping TypeName="posmvcModel.stock_in">
+        <MappingFragment StoreEntitySet="stock_in">
+          <ScalarProperty Name="stock_in_id" ColumnName="stock_in_id" />
+          <ScalarProperty Name="stock_in_time" ColumnName="stock_in_time" />
+          <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
+          <ScalarProperty Name="supplier_payment" ColumnName="supplier_payment" />
+          <ScalarProperty Name="qty_of_producttypes" ColumnName="qty_of_producttypes" />
+          <ScalarProperty Name="paid" ColumnName="paid" />
+          <ScalarProperty Name="supplier_payment_left_id" ColumnName="supplier_payment_left_id" />
+          <ScalarProperty Name="move_to_stock" ColumnName="move_to_stock" />
+          <ScalarProperty Name="left_amount" ColumnName="left_amount" />
+          <ScalarProperty Name="paid_amount" ColumnName="paid_amount" />
+          <ScalarProperty Name="return_amt" ColumnName="return_amt" />
+          <ScalarProperty Name="daily_transition_id" ColumnName="daily_transition_id" />
+          <ScalarProperty Name="admin_user_id" ColumnName="admin_user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stock_in_products">
+      <EntityTypeMapping TypeName="posmvcModel.stock_in_products">
+        <MappingFragment StoreEntitySet="stock_in_products">
+          <ScalarProperty Name="stock_in_products_id" ColumnName="stock_in_products_id" />
+          <ScalarProperty Name="stock_in_id" ColumnName="stock_in_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="product_buy_pric" ColumnName="product_buy_pric" />
+          <ScalarProperty Name="product_sell_default_price" ColumnName="product_sell_default_price" />
+          <ScalarProperty Name="product_qty" ColumnName="product_qty" />
+          <ScalarProperty Name="stock_status" ColumnName="stock_status" />
+          <ScalarProperty Name="additional_cost" ColumnName="additional_cost" />
+          <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
+          <ScalarProperty Name="stock_location_id" ColumnName="stock_location_id" />
+          <ScalarProperty Name="stock_in_time" ColumnName="stock_in_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stock_out">
+      <EntityTypeMapping TypeName="posmvcModel.stock_out">
+        <MappingFragment StoreEntitySet="stock_out">
+          <ScalarProperty Name="stock_out_id" ColumnName="stock_out_id" />
+          <ScalarProperty Name="stock_out_time" ColumnName="stock_out_time" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="customer_payment" ColumnName="customer_payment" />
+          <ScalarProperty Name="qty_of_producttypes" ColumnName="qty_of_producttypes" />
+          <ScalarProperty Name="paid_amount" ColumnName="paid_amount" />
+          <ScalarProperty Name="customer_payment_left_id" ColumnName="customer_payment_left_id" />
+          <ScalarProperty Name="sent_or_unsent" ColumnName="sent_or_unsent" />
+          <ScalarProperty Name="stock_out_type" ColumnName="stock_out_type" />
+          <ScalarProperty Name="transport_cost" ColumnName="transport_cost" />
+          <ScalarProperty Name="left_amount" ColumnName="left_amount" />
+          <ScalarProperty Name="paid_or_unpaid" ColumnName="paid_or_unpaid" />
+          <ScalarProperty Name="cu_profit" ColumnName="cu_profit" />
+          <ScalarProperty Name="temp_profit" ColumnName="temp_profit" />
+          <ScalarProperty Name="return_amt" ColumnName="return_amt" />
+          <ScalarProperty Name="real_total_profit" ColumnName="real_total_profit" />
+          <ScalarProperty Name="get_total_profit" ColumnName="get_total_profit" />
+          <ScalarProperty Name="total_cost" ColumnName="total_cost" />
+          <ScalarProperty Name="daily_transition_id" ColumnName="daily_transition_id" />
+          <ScalarProperty Name="stock_location_id" ColumnName="stock_location_id" />
+          <ScalarProperty Name="admin_user_id" ColumnName="admin_user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stock_out_products">
+      <EntityTypeMapping TypeName="posmvcModel.stock_out_products">
+        <MappingFragment StoreEntitySet="stock_out_products">
+          <ScalarProperty Name="stock_out_products_id" ColumnName="stock_out_products_id" />
+          <ScalarProperty Name="stock_out_id" ColumnName="stock_out_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="profit" ColumnName="profit" />
+          <ScalarProperty Name="product_qty" ColumnName="product_qty" />
+          <ScalarProperty Name="sent_or_unsent" ColumnName="sent_or_unsent" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="total_price" ColumnName="total_price" />
+          <ScalarProperty Name="stock_out_time" ColumnName="stock_out_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subcategories">
+      <EntityTypeMapping TypeName="posmvcModel.subcategory">
+        <MappingFragment StoreEntitySet="subcategory">
+          <ScalarProperty Name="subcategory_id" ColumnName="subcategory_id" />
+          <ScalarProperty Name="subcategory_name" ColumnName="subcategory_name" />
+          <ScalarProperty Name="subcategory_description" ColumnName="subcategory_description" />
+          <ScalarProperty Name="category_id" ColumnName="category_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="suppliers">
+      <EntityTypeMapping TypeName="posmvcModel.supplier">
+        <MappingFragment StoreEntitySet="supplier">
+          <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
+          <ScalarProperty Name="supplier_name" ColumnName="supplier_name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="ph1" ColumnName="ph1" />
+          <ScalarProperty Name="ph2" ColumnName="ph2" />
+          <ScalarProperty Name="ph3" ColumnName="ph3" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="township_id" ColumnName="township_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="supplier_payment_left">
+      <EntityTypeMapping TypeName="posmvcModel.supplier_payment_left">
+        <MappingFragment StoreEntitySet="supplier_payment_left">
+          <ScalarProperty Name="supplier_payment_left_id" ColumnName="supplier_payment_left_id" />
+          <ScalarProperty Name="left_amount" ColumnName="left_amount" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="return_amount" ColumnName="return_amount" />
+          <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
+          <ScalarProperty Name="finish" ColumnName="finish" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="posmvcModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="total_daily_transition">
+      <EntityTypeMapping TypeName="posmvcModel.total_daily_transition">
+        <MappingFragment StoreEntitySet="total_daily_transition">
+          <ScalarProperty Name="daily_transition_id" ColumnName="daily_transition_id" />
+          <ScalarProperty Name="total_profit_amount" ColumnName="total_profit_amount" />
+          <ScalarProperty Name="income_or_outcome_date" ColumnName="income_or_outcome_date" />
+          <ScalarProperty Name="total_income_amount" ColumnName="total_income_amount" />
+          <ScalarProperty Name="total_outgo_amount" ColumnName="total_outgo_amount" />
+          <ScalarProperty Name="stock_location_id" ColumnName="stock_location_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
